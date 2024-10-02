@@ -20,7 +20,7 @@ all-features = true
 [dependencies]
 anyhow = { workspace = true }
 postcard = { workspace = true }
-cpp_demangle = { version = "0.4.3", optional = true }
+cpp_demangle = { version = "0.4.4", optional = true }
 cranelift-entity = { workspace = true }
 cranelift-bitset = { workspace = true, features = ['enable-serde'] }
 wasmtime-types = { workspace = true }
@@ -31,7 +31,7 @@ serde_derive = { workspace = true }
 log = { workspace = true }
 gimli = { workspace = true }
 object = { workspace = true }
-rustc-demangle = { version = "0.1.16", optional = true }
+rustc-demangle = { version = "0.1.24", optional = true }
 target-lexicon = { workspace = true }
 wasm-encoder = { workspace = true, optional = true }
 wasmprinter = { workspace = true, optional = true }

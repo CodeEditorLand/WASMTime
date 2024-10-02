@@ -28,8 +28,8 @@ features = [
 ]
 
 [build-dependencies]
-cc = "1.0"
+cc = "1.1"
 wasmtime-versioned-export-macros = { workspace = true }
 
 [dev-dependencies]
-backtrace = "0.3.68"
+backtrace = "0.3.74"

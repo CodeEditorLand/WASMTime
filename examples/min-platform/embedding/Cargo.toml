@@ -17,7 +17,7 @@ anyhow = { workspace = true }
 wasmtime = { workspace = true, features = ['runtime'] }
 
 # Memory allocator used in this example (not required, however)
-dlmalloc = "0.2.4"
+dlmalloc = "0.2.6"
 
 [lib]
 crate-type = ['staticlib']

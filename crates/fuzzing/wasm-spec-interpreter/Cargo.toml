@@ -16,7 +16,7 @@ workspace = true
 # is better to only build the OCaml dependencies when fuzzing (see the
 # `build-libinterpret` feature set by this crate's parent).
 [dependencies]
-ocaml-interop = { version = "0.8", optional = true }
+ocaml-interop = { version = "0.10", optional = true }
 once_cell = { workspace = true, optional = true }
 
 [dev-dependencies]

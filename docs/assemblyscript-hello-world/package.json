@@ -13,6 +13,6 @@
   "license": "MIT",
   "dependencies": {
     "@assemblyscript/wasi-shim": "^0.1.0",
-    "assemblyscript": "^0.27.1"
+    "assemblyscript": "^0.27.30"
   }
 }

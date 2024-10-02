@@ -8,8 +8,8 @@ publish = false
 
 [dependencies]
 wasi-nn = "0.6.0"
-image = { version = "0.24.6", default-features = false, features = ["png"] }
-ndarray = "0.15.3"
+image = { version = "0.25.2", default-features = false, features = ["png"] }
+ndarray = "0.16.1"
 
 # This crate is built with the wasm32-wasip1 target, so it's separate
 # from the main Wasmtime build, so use this directive to exclude it

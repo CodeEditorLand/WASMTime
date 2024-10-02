@@ -20,10 +20,10 @@ cranelift-codegen = { workspace = true, features = ["std"] }
 cranelift-entity = { workspace = true }
 cranelift-control = { workspace = true }
 anyhow = { workspace = true }
-region = "2.2.0"
+region = "3.0.2"
 libc = { workspace = true }
 target-lexicon = { workspace = true }
-memmap2 = { version = "0.2.1", optional = true }
+memmap2 = { version = "0.9.5", optional = true }
 log = { workspace = true }
 wasmtime-jit-icache-coherence = { workspace = true }
 

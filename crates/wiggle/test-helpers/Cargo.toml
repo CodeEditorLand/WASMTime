@@ -16,12 +16,12 @@ publish = false
 workspace = true
 
 [dependencies]
-proptest = "1.0.0"
+proptest = "1.5.0"
 wiggle = { path = "..", features = ["tracing_log"] }
 
 [dev-dependencies]
 anyhow = { workspace = true }
 thiserror = { workspace = true }
 tracing = { workspace = true }
-tracing-subscriber = { version = "0.3.1", default-features = false, features = ['fmt'] }
+tracing-subscriber = { version = "0.3.18", default-features = false, features = ['fmt'] }
 env_logger = { workspace = true }

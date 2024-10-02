@@ -18,9 +18,9 @@ component-test-util = { workspace = true }
 component-fuzz-util = { workspace = true }
 env_logger = { workspace = true }
 log = { workspace = true }
-rayon = "1.2.1"
+rayon = "1.10.0"
 target-lexicon = { workspace = true }
-tempfile = "3.3.0"
+tempfile = "3.13.0"
 wasmparser = { workspace = true }
 wasmprinter = { workspace = true }
 wasmtime = { workspace = true, features = ['default', 'winch', 'gc', 'memory-protection-keys'] }
@@ -29,7 +29,7 @@ wasm-encoder = { workspace = true }
 wasm-smith = { workspace = true }
 wasm-mutate = { workspace = true }
 wasm-spec-interpreter = { path = "./wasm-spec-interpreter", optional = true }
-wasmi = "0.31.1"
+wasmi = "0.36.3"
 futures = { workspace = true }
 
 # We rely on precompiled v8 binaries, but rusty-v8 doesn't have a precompiled
@@ -37,11 +37,11 @@ futures = { workspace = true }
 # though, so we could use that if we wanted. For now though just simplify a bit
 # and don't depend on this on Windows.  The same applies on s390x and riscv.
 [target.'cfg(not(any(windows, target_arch = "s390x", target_arch = "riscv64")))'.dependencies]
-v8 = "0.86.0"
+v8 = "129.0.0"
 
 [dev-dependencies]
 wat = { workspace = true }
-rand = { version = "0.8.0", features = ["small_rng"] }
+rand = { version = "0.8.5", features = ["small_rng"] }
 
 # Only enable the `build-libinterpret` feature when fuzzing is enabled, enabling
 # commands like `cargo test --workspace` or similar to not need an ocaml

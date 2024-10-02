@@ -34,13 +34,13 @@ openvino = { version = "0.7.2", features = [
     "runtime-linking",
 ], optional = true }
 
-ort = { version = "2.0.0-rc.2", default-features = false, features = [
+ort = { version = "2.0.0-rc.6", default-features = false, features = [
     "copy-dylibs",
     "download-binaries",
 ], optional = true }
 
 [target.'cfg(windows)'.dependencies.windows]
-version = "0.52"
+version = "0.58"
 features = [
     "AI_MachineLearning",
     "Storage_Streams",

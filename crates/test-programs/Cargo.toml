@@ -12,12 +12,12 @@ workspace = true
 
 [dependencies]
 anyhow = { workspace = true, features = ['std'] }
-wasi = "0.11.0"
+wasi = "0.13.2"
 wasi-nn = "0.6.0"
 wit-bindgen = { workspace = true, features = ['default'] }
 libc = { workspace = true }
-getrandom = "0.2.9"
+getrandom = "0.2.15"
 futures = { workspace = true, default-features = false, features = ['alloc'] }
 url = { workspace = true }
-sha2 = "0.10.2"
-base64 = "0.21.0"
+sha2 = "0.10.8"
+base64 = "0.22.1"
