@@ -1,9 +1,10 @@
 This example project demonstrates using the `wasi-nn` API to perform WinML-based
 inference. We first build Wasmtime, a fast and secure runtime for WebAssembly,
 and then build a WebAssembly example, which:
-- reads an input image from [`fixture/kitten.png`],
-- converts it to the correct tensor format,
-- and then classifies the image using [`fixture/mobilenet.onnx`]
+
+-   reads an input image from [`fixture/kitten.png`],
+-   converts it to the correct tensor format,
+-   and then classifies the image using [`fixture/mobilenet.onnx`]
 
 [`fixture/kitten.png`]: fixture/kitten.png
 [`fixture/mobilenet.onnx`]: fixture/mobilenet.onnx
@@ -12,11 +13,10 @@ and then build a WebAssembly example, which:
 
 To run this example, perform the following steps on Windows 10 v1803 and later:
 
-1. Build Wasmtime according to the [build guide], but enable the `winml`
-   feature:
-   ```shell
-   cargo build --release --features wasmtime-wasi-nn/winml
-   ```
+1. Build Wasmtime according to the [build guide], but enable the `winml` feature:
+    ```shell
+    cargo build --release --features wasmtime-wasi-nn/winml
+    ```
 1. Navigate to this directory from Wasmtime's top-level directory (referred to
    later as `%PROJECT_DIR%).
     ```

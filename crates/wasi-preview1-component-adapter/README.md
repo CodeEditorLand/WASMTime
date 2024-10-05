@@ -37,8 +37,8 @@ Alternatively the latest copy of the command and reactor adapters can be
 ## Using
 
 With a `wasi_snapshot_preview1.wasm` file on-hand you can create a component
-from a module that imports WASI functions using the [`wasm-tools`
-CLI](https://github.com/bytecodealliance/wasm-tools)
+from a module that imports WASI functions using the
+[`wasm-tools` CLI](https://github.com/bytecodealliance/wasm-tools)
 
 ```sh
 $ cat foo.rs

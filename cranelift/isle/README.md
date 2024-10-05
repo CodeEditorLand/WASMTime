@@ -4,22 +4,22 @@ See also: [Language Reference](./docs/language-reference.md)
 
 ## Table of Contents
 
-* [Introduction](#introduction)
-* [Example Usage](#example-usage)
-* [Tutorial](#tutorial)
-* [Implementation](#implementation)
+-   [Introduction](#introduction)
+-   [Example Usage](#example-usage)
+-   [Tutorial](#tutorial)
+-   [Implementation](#implementation)
 
 ## Introduction
 
-ISLE is a DSL that allows one to write instruction-lowering rules for a
-compiler backend. It is based on a "term-rewriting" paradigm in which the input
--- some sort of compiler IR -- is, conceptually, a tree of terms, and we have a
-set of rewrite rules that turn this into another tree of terms.
+ISLE is a DSL that allows one to write instruction-lowering rules for a compiler
+backend. It is based on a "term-rewriting" paradigm in which the input -- some
+sort of compiler IR -- is, conceptually, a tree of terms, and we have a set of
+rewrite rules that turn this into another tree of terms.
 
-This repository contains a prototype meta-compiler that compiles ISLE rules
-down to an instruction selector implementation in generated Rust code. The
-generated code operates efficiently in a single pass over the input, and merges
-all rules into a decision tree, sharing work where possible, while respecting
+This repository contains a prototype meta-compiler that compiles ISLE rules down
+to an instruction selector implementation in generated Rust code. The generated
+code operates efficiently in a single pass over the input, and merges all rules
+into a decision tree, sharing work where possible, while respecting
 user-configurable priorities on each rule.
 
 The ISLE language is designed so that the rules can both be compiled into an
@@ -30,10 +30,10 @@ level, the rules can be seen as simple equivalences between values in two
 languages, and so should be translatable to formal constraints or other logical
 specification languages.
 
-Some more details and motivation are in [BA RFC #15](https://github.com/bytecodealliance/rfcs/pull/15).
-Reference documentation can be found [here](docs/language-reference.md).
-Details on ISLE's integration into Cranelift can be found
-[here](../docs/isle-integration.md).
+Some more details and motivation are in
+[BA RFC #15](https://github.com/bytecodealliance/rfcs/pull/15). Reference
+documentation can be found [here](docs/language-reference.md). Details on ISLE's
+integration into Cranelift can be found [here](../docs/isle-integration.md).
 
 ## Example Usage
 
@@ -124,8 +124,8 @@ really have to do.
 ```
 
 Each rule has the form `(rule <left-hand side> <right-hand-side>)`. The
-left-hand side (LHS) is a *pattern* and the right-hand side (RHS) is an
-*expression*. When the LHS pattern matches the input, then we evaluate the RHS
+left-hand side (LHS) is a _pattern_ and the right-hand side (RHS) is an
+_expression_. When the LHS pattern matches the input, then we evaluate the RHS
 expression. The LHS pattern can bind variables from the input that are then
 available in the right-hand side. For example, in our `Const`-lowering rule, the
 variable `c` is bound from the LHS and then reused in the RHS.
@@ -163,31 +163,31 @@ pub fn constructor_lower<C: Context>(ctx: &mut C, arg0: &HighLevelInst) -> Optio
 
 There are a few things to notice about this generated Rust code:
 
-* The `lower` constructor term becomes the `constructor_lower` function in the
-  generated code.
+-   The `lower` constructor term becomes the `constructor_lower` function in the
+    generated code.
 
-* The function returns a value of type `Option<LowLevelInst>` and returns `None`
-  when it doesn't know how to lower an input `HighLevelInst`. This is useful for
-  incrementally porting hand-written lowering code to ISLE.
+-   The function returns a value of type `Option<LowLevelInst>` and returns
+    `None` when it doesn't know how to lower an input `HighLevelInst`. This is
+    useful for incrementally porting hand-written lowering code to ISLE.
 
-* There is a helpful comment documenting where in the ISLE source code a rule
-  was defined. The goal is to make ISLE more transparent and less magical.
+-   There is a helpful comment documenting where in the ISLE source code a rule
+    was defined. The goal is to make ISLE more transparent and less magical.
 
-* The code is parameterized by a type that implements a `Context`
-  trait. Implementing this trait is how you glue the generated code into your
-  compiler. Right now this is an empty trait; more on `Context` later.
+-   The code is parameterized by a type that implements a `Context` trait.
+    Implementing this trait is how you glue the generated code into your
+    compiler. Right now this is an empty trait; more on `Context` later.
 
-* Lastly, and most importantly, this generated Rust code is basically what we
-  would have written by hand to do the same thing, other than things like
-  variable names. It checks if the input is a `Const`, and if so, translates it
-  into a `LowLevelInst::Const`.
+-   Lastly, and most importantly, this generated Rust code is basically what we
+    would have written by hand to do the same thing, other than things like
+    variable names. It checks if the input is a `Const`, and if so, translates
+    it into a `LowLevelInst::Const`.
 
 Okay, one rule isn't very impressive, but in order to start writing more rules
 we need to be able to put the result of a lowered instruction into a `Reg`. This
 might internally have to do arbitrary things like update use counts or anything
 else that Cranelift's existing `LowerCtx::put_input_in_reg` does for different
 target architectures. To allow for plugging in this kind of arbitrary logic,
-ISLE supports *external constructors*. These end up as methods of the `Context`
+ISLE supports _external constructors_. These end up as methods of the `Context`
 trait in the generated Rust code, and you can implement them however you want
 with custom Rust code.
 
@@ -293,7 +293,7 @@ x = load addr
 y = add x, 1
 ```
 
-We can encode these kinds of preconditions in an *external extractor*. An
+We can encode these kinds of preconditions in an _external extractor_. An
 extractor is like our regular constructor functions, but it is used inside LHS
 patterns, rather than RHS expressions, and its arguments and results flipped
 around: instead of taking arguments and producing results, it takes a result and
@@ -482,7 +482,7 @@ lazily lex it.
 
 Relevant source files:
 
-* `isle/src/lexer.rs`
+-   `isle/src/lexer.rs`
 
 ### Parsing
 
@@ -491,8 +491,8 @@ parser is a simple, hand-written, recursive-descent parser.
 
 Relevant source files:
 
-* `isle/src/ast.rs`
-* `isle/src/parser.rs`
+-   `isle/src/ast.rs`
+-   `isle/src/parser.rs`
 
 ### Semantic Analysis
 
@@ -502,7 +502,7 @@ to get information about our terms throughout the rest of the pipeline.
 
 Relevant source files:
 
-* `isle/src/sema.rs`
+-   `isle/src/sema.rs`
 
 ### Trie Construction
 
@@ -512,8 +512,8 @@ of the decision tree that will be emitted during code generation.
 
 Relevant source files:
 
-* `isle/src/ir.rs`
-* `isle/src/trie.rs`
+-   `isle/src/ir.rs`
+-   `isle/src/trie.rs`
 
 ### Code Generation
 
@@ -522,4 +522,4 @@ implements it.
 
 Relevant source files:
 
-* `isle/src/codegen.rs`
+-   `isle/src/codegen.rs`

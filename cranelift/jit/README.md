@@ -5,4 +5,5 @@ This crate is extremely experimental.
 
 See the [example program] for a brief overview of how to use this.
 
-[example program]: https://github.com/bytecodealliance/wasmtime/blob/main/cranelift/jit/examples/jit-minimal.rs
+[example program]:
+	https://github.com/bytecodealliance/wasmtime/blob/main/cranelift/jit/examples/jit-minimal.rs
